@@ -1,0 +1,36 @@
+version: "3.3"
+
+services:
+  # Nginx
+  web:
+    container_name: nginx_coworking
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./source/:/var/www/
+      - ./nginx.php-fpm.conf:/etc/nginx/nginx.conf:ro
+    links:
+      - php-fpm
+
+  # Configuración de php
+  php-fpm:
+    container_name: php_coworking
+    build: .
+    volumes:
+      - ./source:/var/www/html
+
+  #MariaDB
+  db:
+    container_name: mariadb_coworking
+    image: mariadb:latest
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: toor
+      MARIADB_DATABASE: ejemplo
+      MARIADB_USER: usuario
+      MARIADB_PASSWORD: usuario
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./mariadb:/var/lib/mysql
