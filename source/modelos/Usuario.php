@@ -1,6 +1,6 @@
 <?php
 
-    namespace Coworking\models;
+    namespace Coworking\modelos;
 
     class Usuario{
 
