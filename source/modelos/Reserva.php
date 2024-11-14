@@ -2,11 +2,7 @@
 
     namespace Coworking\modelos;
 
-    //Definimos ENUM
-    enum EstadoReserva: string{
-        case CONFIRMADA = "confirmada";
-        case CANCELADA = "cancelada";
-    }
+    use Coworking\enum\EstadoReserva;
 
     class Reserva{
         private $id;

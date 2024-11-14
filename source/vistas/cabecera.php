@@ -13,39 +13,49 @@
         }
     </style>
 </head>
-<body>
-    <header class="d-flex justify-content-around">
-        <h1>Coworking</h1>
-        <div class="w-50">
-            <ul class="d-flex justify-content-around">
-                <li><a class="btn btn-secondary" href="">Salas</a></li>
-                <li><a class="btn btn-secondary" href="">Mis Reservas</a></li>
-                <li><div class="dropdown">
-                        <?php
-                        
-                            if (isset($_SESSION["usuario"])){
-                                $email = $_SESSION['usuario'];
-                                echo ("
-                                    <button class='btn btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                        <strong>$email</strong>
-                                    </button>
-                                    <ul class='dropdown-menu'>
-                                        <li><button class='dropdown-item p-2' type='button'><i class='fa-solid fa-user m-lg-1'></i>Cerrar sesion</button></li>
-                                    </ul>");
-                            }else{
-                                echo ("<button class='btn btn-secondary dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                                        <strong>Login</strong>
-                                    </button>
-                                    <ul class='dropdown-menu'>
-                                        <li><button class='dropdown-item' type='button'><i class='fa-solid fa-right-to-bracket m-lg-1'></i>Registrarse</button></li>
-                                        <li><button class='dropdown-item p-2' type='button'><i class='fa-solid fa-user m-lg-1'></i>Iniciar Sesión</button></li>
-                                    </ul>");
-                            }
-                        ?>
-                    </div>
-                </li>
-            </ul>
+<body class="min-vh-100">
+<header class="p-3 mb-3 border-bottom">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between ">
+
+            <h1>Coworking</h1>
+            <?php
+                    if (isset($_SESSION['usuario'])) {
+                        echo ("<form class='col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex gap-2' role='search'>
+                                    <input type='search' class='form-control' placeholder='Buscar sala...' aria-label='Search'>
+                                    <button class='btn btn-primary' type='submit'>Buscar</button>
+                                </form>");
+                    } else{
+                        echo ("<form class='col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex gap-2' role='search'>
+                                    <input type='search' class='form-control' placeholder='Buscar sala...' aria-label='Search' disabled>
+                                    <button class='btn btn-primary' type='submit' disabled>Buscar</button>
+                                </form>");
+                    }
+            ?>
+
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-user fs-4"></i>
+                </a>
+                <?php
+                    if (isset($_SESSION['usuario'])) {
+                        $email = $_SESSION['usuario'];
+                        echo("<ul class='dropdown-menu text-small'>
+                                <li><a class='dropdown-item' href='#'>Mis reservas</a></li>
+                                <li><hr class='dropdown-divider'></li>
+                                <li><a class='dropdown-item' href='index.php?accion=cerrarSesion'>Cerrar sesión</a></li>
+                            </ul>");
+                    } else{
+                        echo("<ul class='dropdown-menu text-small'>
+                                <li><a class='dropdown-item' href='#'>Regístrate</a></li>
+                                <li><hr class='dropdown-divider'></li>
+                                <li><a class='dropdown-item' href='index.php?accion=login'>Iniciar sesión</a></li>
+                            </ul>");
+                    }
+                ?>
+            </div>
         </div>
-    </header>
+    </div>
+</header>
 
 

@@ -8,7 +8,7 @@
     class ConexionBD{
         private $conexion;
 
-        public function __construct($conexion){
+        public function __construct(){
             $host = 'mariadb_coworking:3306'; //Host de la base de datos y puerto interno del contenedor
 
             try {

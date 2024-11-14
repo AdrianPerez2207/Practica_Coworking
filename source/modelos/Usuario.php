@@ -9,7 +9,8 @@
         private $apellidos;
         private $email;
         private $password;
-        private $fechaRegistro;
+        private $telefono;
+        private $fecha_creacion;
 
         /**
          * @param $id
@@ -19,14 +20,15 @@
          * @param $password
          * @param $fechaRegistro
          */
-        public function __construct($id="", $nombre="", $apellidos="", $email="", $password="", $fechaRegistro="")
+        public function __construct($id="", $nombre="", $apellidos="", $email="", $password="", $telefono="", $fecha_creacion="")
         {
             $this->id = $id;
             $this->nombre = $nombre;
             $this->apellidos = $apellidos;
             $this->email = $email;
             $this->password = $password;
-            $this->fechaRegistro = $fechaRegistro;
+            $this->telefono = $telefono;
+            $this->fecha_creacion = $fecha_creacion;
         }
 
 
@@ -110,20 +112,28 @@
             $this->password = $password;
         }
 
-        /**
-         * @return mixed
-         */
-        public function getFechaRegistro()
+        public function getTelefono(): mixed
         {
-            return $this->fechaRegistro;
+            return $this->telefono;
         }
 
-        /**
-         * @param mixed $fechaRegistro
-         */
-        public function setFechaRegistro($fechaRegistro)
+        public function setTelefono(mixed $telefono): void
         {
-            $this->fechaRegistro = $fechaRegistro;
+            $this->telefono = $telefono;
         }
+
+        public function getFechaCreacion(): mixed
+        {
+            return $this->fecha_creacion;
+        }
+
+        public function setFechaCreacion(mixed $fecha_creacion): void
+        {
+            $this->fecha_creacion = $fecha_creacion;
+        }
+
+
+
+
 
     }
