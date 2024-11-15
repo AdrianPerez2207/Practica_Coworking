@@ -25,26 +25,33 @@
     if (isset($_REQUEST["accion"])) {
         //Vista de login
         if ($_REQUEST["accion"] == "login") {
-            VistaLogin::render("");
+            ControladorUsuarios::mostrarLogin("");
+        }
+        //Vista de registro
+        if ($_REQUEST["accion"] == "registro") {
+            ControladorUsuarios::mostrarRegistro("");
         }
         //Cerrar sesión
         if ($_REQUEST["accion"] == "cerrarSesion") {
             session_destroy();
-            VistaLogin::render("");
+            ControladorUsuarios::mostrarLogin("");
         }
         //Vista de salas
         if ($_REQUEST["accion"] == "mostrarSalas") {
             ControladorSalas::mostrarSalas();
         }
-        //Vista de registro
-        if ($_REQUEST["accion"] == "registro") {
-            VistaRegistro::render("");
+        //Vista registro
+        if ($_REQUEST["accion"] == "mostrarRegistro"){
+            ControladorUsuarios::mostrarRegistro("");
         }
         //Tratamiento de formularios
     } else if ($_POST != null) {
         //Login
         if (isset($_POST["login"])) {
             ControladorUsuarios::login($_POST["email"], $_POST["password"]);
+        }
+        if (isset($_POST["registro"])){
+            ControladorUsuarios::registro($_POST["nombre"], $_POST["apellidos"], $_POST["email"], $_POST["password"], $_POST["telefono"]);
         }
 
     } else {
@@ -55,7 +62,6 @@
 
         } else{
             //Formulario de login
-            VistaLogin::render("");
-
+            ControladorUsuarios::mostrarLogin("");
         }
     }

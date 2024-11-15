@@ -34,7 +34,7 @@
                         <label for="floatingPassword">Contraseña</label>
                     </div>
                     <div class="form-floating">
-                        <input name="telefono" type="number" class="form-control" id="floatingInput" placeholder="XXXXXXXXX">
+                        <input name="telefono" type="tel" class="form-control" id="floatingInput" placeholder="XXXXXXXXX">
                         <label for="floatingInput">Teléfono</label>
                     </div>
 

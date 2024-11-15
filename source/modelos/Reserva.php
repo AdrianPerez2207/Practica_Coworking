@@ -11,7 +11,7 @@
         private $fecha_reserva;
         private $hora_inicio;
         private $hora_fin;
-        private EstadoReserva $estado;
+        private $estado;
 
         /**
          * @param $id
@@ -29,7 +29,7 @@
             $this->fecha_reserva = $fecha_reserva;
             $this->hora_inicio = $hora_inicio;
             $this->hora_fin = $hora_fin;
-            $this->estado = EstadoReserva::CONFIRMADA;
+            $this->estado = "confirmada";
         }
 
         public function getId(): mixed
@@ -92,15 +92,17 @@
             $this->hora_fin = $hora_fin;
         }
 
-        public function getEstado(): EstadoReserva
+        public function getEstado(): string
         {
             return $this->estado;
         }
 
-        public function setEstado(EstadoReserva $estado): void
+        public function setEstado(string $estado): void
         {
             $this->estado = $estado;
         }
+
+
 
 
     }

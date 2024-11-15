@@ -41,13 +41,14 @@
                     if (isset($_SESSION['usuario'])) {
                         $email = $_SESSION['usuario'];
                         echo("<ul class='dropdown-menu text-small'>
+                                <li><a class='dropdown-item' href='#'>Salas disponibles</a></li>
                                 <li><a class='dropdown-item' href='#'>Mis reservas</a></li>
                                 <li><hr class='dropdown-divider'></li>
                                 <li><a class='dropdown-item' href='index.php?accion=cerrarSesion'>Cerrar sesión</a></li>
                             </ul>");
                     } else{
                         echo("<ul class='dropdown-menu text-small'>
-                                <li><a class='dropdown-item' href='#'>Regístrate</a></li>
+                                <li><a class='dropdown-item' href='index.php?accion=registro'>Regístrate</a></li>
                                 <li><hr class='dropdown-divider'></li>
                                 <li><a class='dropdown-item' href='index.php?accion=login'>Iniciar sesión</a></li>
                             </ul>");
