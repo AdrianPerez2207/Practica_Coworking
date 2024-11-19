@@ -2,12 +2,10 @@
 
     namespace Coworking\modelos;
 
-    use Coworking\enum\EstadoReserva;
-
     class Reserva{
         private $id;
-        private $id_usuario;
-        private $id_sala;
+        private $nombre_usuario;
+        private $nombre_sala;
         private $fecha_reserva;
         private $hora_inicio;
         private $hora_fin;
@@ -15,17 +13,17 @@
 
         /**
          * @param $id
-         * @param $id_usuario
-         * @param $id_sala
+         * @param $nombre_usuario
+         * @param $nombre_sala
          * @param $fecha_reserva
          * @param $hora_inicio
          * @param $hora_fin
          */
-        public function __construct($id="", $id_usuario="", $id_sala="", $fecha_reserva="", $hora_inicio="", $hora_fin="")
+        public function __construct($id="", $nombre_usuario="", $nombre_sala="", $fecha_reserva="", $hora_inicio="", $hora_fin="")
         {
             $this->id = $id;
-            $this->id_usuario = $id_usuario;
-            $this->id_sala = $id_sala;
+            $this->nombre_usuario = $nombre_usuario;
+            $this->nombre_sala = $nombre_sala;
             $this->fecha_reserva = $fecha_reserva;
             $this->hora_inicio = $hora_inicio;
             $this->hora_fin = $hora_fin;
@@ -42,24 +40,24 @@
             $this->id = $id;
         }
 
-        public function getIdUsuario(): mixed
+        public function getNombreUsuario(): mixed
         {
-            return $this->id_usuario;
+            return $this->nombre_usuario;
         }
 
-        public function setIdUsuario(mixed $id_usuario): void
+        public function setNombreUsuario(mixed $nombre_usuario): void
         {
-            $this->id_usuario = $id_usuario;
+            $this->nombre_usuario = $nombre_usuario;
         }
 
-        public function getIdSala(): mixed
+        public function getNombreSala(): mixed
         {
-            return $this->id_sala;
+            return $this->nombre_sala;
         }
 
-        public function setIdSala(mixed $id_sala): void
+        public function setNombreSala(mixed $nombre_sala): void
         {
-            $this->id_sala = $id_sala;
+            $this->nombre_sala = $nombre_sala;
         }
 
         public function getFechaReserva(): mixed

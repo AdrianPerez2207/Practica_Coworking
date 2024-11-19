@@ -1,6 +1,7 @@
 <?php
 
     namespace Coworking;
+    use Coworking\controladores\ControladorReservas;
     use Coworking\controladores\ControladorUsuarios;
     use Coworking\controladores\ControladorSalas;
     use Coworking\vistas\VistaLogin;
@@ -34,15 +35,19 @@
         //Cerrar sesión
         if ($_REQUEST["accion"] == "cerrarSesion") {
             session_destroy();
-            ControladorUsuarios::mostrarLogin("");
+            header("Location: index.php?accion=login");
         }
         //Vista de salas
         if ($_REQUEST["accion"] == "mostrarSalas") {
             ControladorSalas::mostrarSalas();
         }
-        //Vista registro
-        if ($_REQUEST["accion"] == "mostrarRegistro"){
-            ControladorUsuarios::mostrarRegistro("");
+        //Vista reservas
+        if ($_REQUEST["accion"] == "reservar") {
+            ControladorReservas::mostrarReservas("");
+        }
+        //Vista detalles de sala
+        if ($_REQUEST["accion"] == "detalles") {
+            ControladorSalas::detallesSala($_REQUEST["nombre"]);
         }
         //Tratamiento de formularios
     } else if ($_POST != null) {

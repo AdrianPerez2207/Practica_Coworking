@@ -34,20 +34,25 @@
             ?>
 
             <div class="dropdown text-end">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-user fs-4"></i>
-                </a>
                 <?php
                     if (isset($_SESSION['usuario'])) {
-                        $email = $_SESSION['usuario'];
-                        echo("<ul class='dropdown-menu text-small'>
-                                <li><a class='dropdown-item' href='#'>Salas disponibles</a></li>
+                        $email = $_SESSION['usuario']['email'];
+                        echo("
+                            <a href='#' class='d-block link-body-emphasis text-decoration-none dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <i class='fa-solid fa-user fs-4'></i><span class='ms-2 d-none d-lg-inline-block'>{$email}</span>
+                            </a>
+                            <ul class='dropdown-menu text-small'>
+                                <li><a class='dropdown-item' href='index.php?accion=mostrarSalas'>Salas disponibles</a></li>
                                 <li><a class='dropdown-item' href='#'>Mis reservas</a></li>
                                 <li><hr class='dropdown-divider'></li>
                                 <li><a class='dropdown-item' href='index.php?accion=cerrarSesion'>Cerrar sesión</a></li>
                             </ul>");
                     } else{
-                        echo("<ul class='dropdown-menu text-small'>
+                        echo("
+                            <a href='#' class='d-block link-body-emphasis text-decoration-none dropdown-toggle' data-bs-toggle='dropdown' aria-expanded='false'>
+                                <i class='fa-solid fa-user fs-4'></i>
+                            </a>
+                            <ul class='dropdown-menu text-small'>
                                 <li><a class='dropdown-item' href='index.php?accion=registro'>Regístrate</a></li>
                                 <li><hr class='dropdown-divider'></li>
                                 <li><a class='dropdown-item' href='index.php?accion=login'>Iniciar sesión</a></li>

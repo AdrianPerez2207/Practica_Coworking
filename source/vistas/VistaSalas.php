@@ -7,12 +7,8 @@
 
             include("cabecera.php");
 ?>
-    <main>
+    <main class="p-3">
         <section>
-            <!--Acciones-->
-        </section>
-        <section>
-            <!--Salas-->
             <table class="table text-center">
                 <thead>
                 <tr>
@@ -32,9 +28,9 @@
                             <td><?=$sala->getNombre(); ?></td>
                             <td><?=$sala->getCapacidad(); ?></td>
                             <td><?=$sala->getUbicacion(); ?></td>
-                            <td><a href="index.php?accion=reservar&id=<?=$sala->getId(); ?>">
+                            <td><a href="index.php?accion=reservar&nombre=<?=$sala->getNombre(); ?>&id=<?=$sala->getId(); ?>">
                                     <i class="fa-solid fa-registered fs-4"></i></a>
-                            <td><a href="index.php?accion=detalles&id=<?=$sala->getId(); ?>">
+                            <td><a href="index.php?accion=detalles&nombre=<?=$sala->getNombre(); ?>">
                                     <i class="fa-solid fa-eye fs-4"></i></i></a>
                         </tr>
                 <?php
