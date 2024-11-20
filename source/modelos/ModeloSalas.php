@@ -23,7 +23,7 @@
             //Consulta a la BD
             $stmt = $conexion->getConexion()->prepare("SELECT usuarios.nombre as nombre_usuario, reservas.fecha_reserva, reservas.hora_inicio, reservas.hora_fin
                                     FROM salas JOIN reservas ON reservas.id_sala = salas.id JOIN usuarios ON usuarios.id = reservas.id_usuario
-                                    WHERE salas.nombre = :nombre");
+                                    WHERE salas.nombre = :nombre AND reservas.estado = 'confirmada' ORDER BY reservas.fecha_reserva ASC");
             $stmt->bindValue(1, $nombre);
             //Cambiamos el modo en que nos devuelve el Fetch
             $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Coworking\modelos\Reserva');

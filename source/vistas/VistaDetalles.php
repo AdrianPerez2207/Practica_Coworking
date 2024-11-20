@@ -9,7 +9,7 @@ class VistaDetalles  {
         include("cabecera.php");
 ?>
         <main  class="p-3">
-            <section>
+            <section class="p-3">
                 <h1 class="h3 mb-5 fw-normal text-center">Detalles de la sala <?=$_GET['nombre']; ?></h1>
                 <table class="table text-center">
                     <thead>

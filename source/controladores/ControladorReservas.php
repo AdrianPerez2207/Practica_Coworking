@@ -2,12 +2,31 @@
 
 namespace Coworking\controladores;
 
+use Coworking\modelos\ModeloReservas;
+use Coworking\vistas\VistaMisReservas;
 use Coworking\vistas\VistaReservas;
 
 class ControladorReservas{
 
     public static function mostrarReservas($error){
         VistaReservas::render($error);
+    }
+
+    public static function mostrarMisReservas($id){
+        VistaMisReservas::render(ModeloReservas::mostrarMisReservas($id));
+    }
+
+    public static function cancelarReserva($idReserva, $idUsuario){
+        ModeloReservas::cancelarReserva($idUsuario, $idReserva);
+        header("Location: index.php?accion=misReservas");
+    }
+
+    public static function crearReserva($id,$id_usuario, $fecha_reserva, $hora_inicio, $hora_fin){
+        if (ModeloReservas::crearReserva($id, $id_usuario, $fecha_reserva, $hora_inicio, $hora_fin)){
+            header("Location: index.php?accion=misReservas");
+        }else{
+            VistaReservas::render("Error al crear la reserva");
+        }
     }
 
 }

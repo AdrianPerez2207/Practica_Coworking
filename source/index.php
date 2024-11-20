@@ -49,15 +49,30 @@
         if ($_REQUEST["accion"] == "detalles") {
             ControladorSalas::detallesSala($_REQUEST["nombre"]);
         }
+        //Vista mis reservas
+        if ($_REQUEST["accion"] == "misReservas") {
+            ControladorReservas::mostrarMisReservas($_SESSION["usuario"]["id"]);
+        }
+        //Cancelar reserva de un usuario
+        if ($_REQUEST["accion"] == "cancelarReserva") {
+            ControladorReservas::cancelarReserva($_REQUEST["id"], $_SESSION["usuario"]["id"]);
+        }
         //Tratamiento de formularios
     } else if ($_POST != null) {
         //Login
         if (isset($_POST["login"])) {
             ControladorUsuarios::login($_POST["email"], $_POST["password"]);
         }
+        //Registro
         if (isset($_POST["registro"])){
             ControladorUsuarios::registro($_POST["nombre"], $_POST["apellidos"], $_POST["email"], $_POST["password"], $_POST["telefono"]);
         }
+        //Crear reserva
+        if (isset($_POST["reservar"])){
+            //Le pasamos el id del usuario que tenemos guardado en la sesión
+            ControladorReservas::crearReserva($_SESSION["usuario"]["id"], $_POST["id"] , $_POST["fecha_reserva"], $_POST["hora_inicio"], $_POST["hora_fin"]);
+        }
+
 
     } else {
         //Página de inicio

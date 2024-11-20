@@ -16,7 +16,9 @@ class VistaReservas  {
             }
             ?>
             <form class="w-25 p-5 mb-5 bg-light rounded-3 m-auto d-grid gap-3" action="index.php" method="post">
-                <h1 class="h3 mb-3 fw-normal">Reservar sala <?=$_GET['nombre']; ?></h1>
+                <h1 class="h3 mb-3 fw-normal text-center">Sala <?=$_GET['nombre']; ?></h1>
+                <!--Ocultamos el id de la sala para poder pasarlo al enviar el formulario-->
+                <input type="hidden" name="id" value="<?=$_GET['id']; ?>">
                 <div class="form-floating">
                     <input name="fecha_reserva" type="date" class="form-control" id="floatingInput">
                     <label for="floatingInput">Fecha de reserva</label>
@@ -24,18 +26,18 @@ class VistaReservas  {
                 <div class="form-floating">
                     <select name="hora_inicio" class="form-select" aria-label="Default select example">
                         <option selected>Select</option>
-                        <option value="1">8:00</option>
-                        <option value="2">12:00</option>
-                        <option value="3">16:00</option>
+                        <option value="8:00">8:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="16:00">16:00</option>
                     </select>
                     <label for="floatingInput">Hora de inicio</label>
                 </div>
                 <div class="form-floating">
                     <select name="hora_fin" class="form-select" aria-label="Default select example">
                         <option selected>Select</option>
-                        <option value="1">12:00</option>
-                        <option value="2">16:00</option>
-                        <option value="3">20:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="20:00">20:00</option>
                     </select>
                     <label for="floatingInput">Hora de fin</label>
                 </div>

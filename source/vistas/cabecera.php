@@ -43,7 +43,7 @@
                             </a>
                             <ul class='dropdown-menu text-small'>
                                 <li><a class='dropdown-item' href='index.php?accion=mostrarSalas'>Salas disponibles</a></li>
-                                <li><a class='dropdown-item' href='#'>Mis reservas</a></li>
+                                <li><a class='dropdown-item' href='index.php?accion=misReservas'>Mis reservas</a></li>
                                 <li><hr class='dropdown-divider'></li>
                                 <li><a class='dropdown-item' href='index.php?accion=cerrarSesion'>Cerrar sesión</a></li>
                             </ul>");
