@@ -73,6 +73,10 @@
             //Le pasamos el id del usuario que tenemos guardado en la sesión
             ControladorReservas::crearReserva($_SESSION["usuario"]["id"], $_POST["id_sala"] , $_POST["fecha_reserva"], $_POST["hora_inicio"], $_POST["hora_fin"]);
         }
+        //Buscamos una sala por su nombre
+        if (isset($_POST["buscarSala"])){
+            ControladorSalas::buscarSala($_POST["buscarSalaNombre"]);
+        }
 
 
     } else {

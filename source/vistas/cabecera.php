@@ -21,9 +21,9 @@
             <h1>Coworking</h1>
             <?php
                     if (isset($_SESSION['usuario'])) {
-                        echo ("<form class='col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex gap-2' role='search'>
-                                    <input type='search' class='form-control' placeholder='Buscar sala...' aria-label='Search'>
-                                    <button class='btn btn-primary' type='submit'>Buscar</button>
+                        echo ("<form class='col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex gap-2' role='search' action='index.php' method='post'>
+                                    <input type='search' class='form-control' placeholder='Buscar sala...' aria-label='Search' name='buscarSalaNombre'>
+                                    <button class='btn btn-primary' type='submit' name='buscarSala'>Buscar</button>
                                 </form>");
                     } else{
                         echo ("<form class='col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex gap-2' role='search'>

@@ -26,4 +26,12 @@
             //Llamar al vista para mostrar los detalles de la sala
             VistaDetalles::render($detalles);
         }
+
+        public static function buscarSala($NombreSala){
+            //Llamar al modelo para buscar la sala
+            $sala = ModeloSalas::buscarSala($NombreSala);
+
+            //Si la sala existe, mostrar los detalles
+            VistaSalas::render($sala);
+        }
     }

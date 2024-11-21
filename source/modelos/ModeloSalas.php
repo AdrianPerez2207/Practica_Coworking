@@ -35,4 +35,21 @@
             $conexion->cerrarSesion();
             return $detalles;
         }
+
+        public static function buscarSala($NombreSala){
+            $conexion = new ConexionBD();
+            //Consulta a la BD
+            $stmt = $conexion->getConexion()->prepare("SELECT * FROM salas WHERE nombre LIKE :nombre");
+            $salaEncontrada = "%$NombreSala%";
+            $stmt->bindValue(1, $salaEncontrada);
+            //Cambiamos el modo en que nos devuelve el Fetch
+            $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Coworking\modelos\Sala');
+            //Ejecutamos la consulta
+            $stmt->execute();
+            //Obtenemos el resultado
+            $sala = $stmt->fetchAll();
+            //Cerrar la conexion
+            $conexion->cerrarSesion();
+            return $sala;
+        }
     }
