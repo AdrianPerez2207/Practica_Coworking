@@ -16,9 +16,9 @@ class VistaReservas  {
             }
             ?>
             <form class="w-25 p-5 mb-5 bg-light rounded-3 m-auto d-grid gap-3" action="index.php" method="post">
-                <h1 class="h3 mb-3 fw-normal text-center">Sala <?=$_GET['nombre']; ?></h1>
+
                 <!--Ocultamos el id de la sala para poder pasarlo al enviar el formulario-->
-                <input type="hidden" name="id" value="<?=$_GET['id']; ?>">
+                <input type="hidden" name="id_sala" value="<?=$_GET['id_sala']; ?>">
                 <div class="form-floating">
                     <input name="fecha_reserva" type="date" class="form-control" id="floatingInput">
                     <label for="floatingInput">Fecha de reserva</label>

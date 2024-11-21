@@ -53,17 +53,17 @@
          * @param $hora_fin
          * @return bool
          */
-        public static function crearReserva($id_sala, $id_usuario, $fecha_reserva, $hora_inicio, $hora_fin){
+        public static function crearReserva($id_usuario, $id_sala, $fecha_reserva, $hora_inicio, $hora_fin){
             $conexion = new ConexionBD();
             //Comprobamos que no exista una reserva con la misma fecha y hora
             if (!self::consultarReservas($id_sala, $fecha_reserva, $hora_inicio, $hora_fin)){
                 return false;
             }else{
                 //Consulta a la BD. Al insertar los datos, el estado de la reserva es confirmada por defecto.
-                $stmt = $conexion->getConexion()->prepare("INSERT INTO reservas (id_sala, id_usuario, fecha_reserva, hora_inicio, hora_fin, estado) 
-                                                        VALUES (:id_sala, :id_usuario, :fecha_reserva, :hora_inicio, :hora_fin, 'confirmada')");
-                $stmt->bindValue(1, $id_sala);
-                $stmt->bindValue(2, $id_usuario);
+                $stmt = $conexion->getConexion()->prepare("INSERT INTO reservas (id_usuario, id_sala, fecha_reserva, hora_inicio, hora_fin, estado) 
+                                                        VALUES (:id_usuario, :id_sala, :fecha_reserva, :hora_inicio, :hora_fin, 'confirmada')");
+                $stmt->bindValue(1, intval($id_usuario));
+                $stmt->bindValue(2, intval($id_sala));
                 $stmt->bindValue(3, $fecha_reserva);
                 $stmt->bindValue(4, $hora_inicio);
                 $stmt->bindValue(5, $hora_fin);

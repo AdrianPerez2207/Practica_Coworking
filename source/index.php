@@ -6,6 +6,7 @@
     use Coworking\controladores\ControladorSalas;
     use Coworking\vistas\VistaLogin;
     use Coworking\vistas\VistaRegistro;
+    use Coworking\vistas\VistaReservas;
 
     session_start();
 
@@ -70,7 +71,7 @@
         //Crear reserva
         if (isset($_POST["reservar"])){
             //Le pasamos el id del usuario que tenemos guardado en la sesión
-            ControladorReservas::crearReserva($_SESSION["usuario"]["id"], $_POST["id"] , $_POST["fecha_reserva"], $_POST["hora_inicio"], $_POST["hora_fin"]);
+            ControladorReservas::crearReserva($_SESSION["usuario"]["id"], $_POST["id_sala"] , $_POST["fecha_reserva"], $_POST["hora_inicio"], $_POST["hora_fin"]);
         }
 
 

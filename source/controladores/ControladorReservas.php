@@ -21,8 +21,8 @@ class ControladorReservas{
         header("Location: index.php?accion=misReservas");
     }
 
-    public static function crearReserva($id,$id_usuario, $fecha_reserva, $hora_inicio, $hora_fin){
-        if (ModeloReservas::crearReserva($id, $id_usuario, $fecha_reserva, $hora_inicio, $hora_fin)){
+    public static function crearReserva($id_usuario, $id_sala, $fecha_reserva, $hora_inicio, $hora_fin){
+        if (ModeloReservas::crearReserva($id_usuario, $id_sala, $fecha_reserva, $hora_inicio, $hora_fin)){
             header("Location: index.php?accion=misReservas");
         }else{
             VistaReservas::render("Error al crear la reserva");
